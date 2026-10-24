@@ -30,12 +30,12 @@ Dự án cung cấp giải pháp toàn diện cho bài toán **Nhận diện và
 
 ---
 
-## 🏷️ Các nhãn nhận diện (Classes)
+## 🏷️ Các nhãn nhận diện (Classes & Mức độ cảnh báo)
 
-Hệ thống được thiết kế nhận diện 3 đối tượng trọng tâm trong đô thị ngập nước:
-- **`0: duong_ngap`**: Vùng mặt đường bị ngập nước.
-- **`1: xe_ngap`**: Ô tô, xe máy ngập hoặc chết máy trong nước ngập.
-- **`2: nguoi_loi_nuoc`**: Người đi bộ / lội qua vùng nước sâu nguy hiểm.
+Hệ thống phân cấp cảnh báo ngập lụt thành 3 mức độ thực tế:
+- **`0: binh_thuong`** (🟢 Xanh lá `#10B981`): Đường khô ráo hoặc ướt mưa nhẹ, giao thông lưu thông bình thường, an toàn.
+- **`1: ngap_di_duoc`** (🟡 Vàng cam `#F59E0B`): Ngập nhẹ / nông (mực nước dưới nửa bánh xe máy, < 20cm), phương tiện có thể đi chậm qua được.
+- **`2: ngap_khong_di_duoc`** (🔴 Đỏ cảnh báo `#EF4444`): Ngập sâu nguy hiểm (mực nước quá nửa bánh xe máy, ngập ống xả/lốc máy hoặc người đi bộ phải lội qua đầu gối), xe có nguy cơ chết máy hoặc bị ngâm nước.
 
 ---
 

@@ -1,10 +1,10 @@
-# Cấu hình dataset nhận diện ngập lụt cho RT-DETR (Ultralytics format)
+# Cấu hình dataset nhận diện mức độ ngập lụt cho RT-DETR
 path: F:/Nam4/Phát triển hệ thống thông minh/flood_training/flood_dataset
 train: images/train
 val: images/val
 
-# Số lượng class & tên nhãn
+# 3 mức độ cảnh báo ngập lụt
 names:
-  0: duong_ngap
-  1: xe_ngap
-  2: nguoi_loi_nuoc
+  0: binh_thuong          # Đường khô ráo, giao thông thông suốt
+  1: ngap_di_duoc         # Ngập nông (< 20cm, dưới nửa bánh xe, xe đi chậm được)
+  2: ngap_khong_di_duoc   # Ngập sâu (quá nửa bánh xe, chết máy, nguy hiểm)

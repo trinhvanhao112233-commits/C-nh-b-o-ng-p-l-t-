@@ -22,18 +22,18 @@ INPUT_WIDTH = 640
 INPUT_HEIGHT = 640
 CONFIDENCE_THRESHOLD = 0.45
 
-# Danh sách nhãn đối tượng (mapping theo thứ tự output của mô hình đã train)
+# Danh sách nhãn đối tượng (mapping theo 3 mức độ ngập lụt)
 CLASS_NAMES = [
-    "duong_ngap",    # 0: Đường ngập
-    "xe_ngap",       # 1: Xe bị ngập nước
-    "nguoi_loi_nuoc" # 2: Người lội nước (mở rộng)
+    "binh_thuong",        # 0: Giao thông bình thường, khô ráo
+    "ngap_di_duoc",       # 1: Ngập nông, phương tiện vẫn đi được
+    "ngap_khong_di_duoc"  # 2: Ngập sâu nguy hiểm, xe không đi được / chết máy
 ]
 
-# Bộ màu hiển thị gợi ý (Hex) để client vẽ Bounding Box
+# Bộ màu hiển thị cảnh báo tương ứng cho Client Vue.js
 CLASS_COLORS = {
-    0: "#3B82F6",  # Xanh dương cho đường ngập
-    1: "#EF4444",  # Đỏ cảnh báo cho xe ngập
-    2: "#F59E0B"   # Cam cho người lội nước
+    0: "#10B981",  # Xanh lá (An toàn / Bình thường)
+    1: "#F59E0B",  # Vàng cam (Cảnh báo nhẹ / Đi chậm)
+    2: "#EF4444"   # Đỏ (Nguy hiểm / Không đi được)
 }
 
 
