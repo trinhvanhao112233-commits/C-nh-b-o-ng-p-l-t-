@@ -1,0 +1,10 @@
+# Cấu hình dataset nhận diện ngập lụt cho RT-DETR (Ultralytics format)
+path: F:/Nam4/Phát triển hệ thống thông minh/flood_training/flood_dataset
+train: images/train
+val: images/val
+
+# Số lượng class & tên nhãn
+names:
+  0: duong_ngap
+  1: xe_ngap
+  2: nguoi_loi_nuoc

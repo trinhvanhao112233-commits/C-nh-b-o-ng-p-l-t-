@@ -1,0 +1,38 @@
+# Python / Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Môi trường ảo (Virtual Environments)
+venv/
+env/
+ENV/
+.venv/
+
+# PyTorch & Trọng số mô hình dung lượng lớn
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Thư mục logs và kết quả huấn luyện
+runs/
+runs_flood/
+flood_experiments/
+*.log
+
+# Dữ liệu ảnh training (tránh đẩy dataset nặng lên git)
+flood_training/flood_dataset/images/train/*.jpg
+flood_training/flood_dataset/images/train/*.png
+flood_training/flood_dataset/images/train/*.jpeg
+flood_training/flood_dataset/images/val/*.jpg
+flood_training/flood_dataset/images/val/*.png
+flood_training/flood_dataset/images/val/*.jpeg
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
