@@ -43,11 +43,12 @@ Hệ thống được thiết kế nhận diện 3 đối tượng trọng tâm 
 
 ### Phần 1: Huấn luyện mô hình (Training)
 
+#### Cách 1: Huấn luyện cục bộ (Local GPU RTX 3060 Ti)
 1. **Chuẩn bị dữ liệu**:
    - Copy ảnh vào: `flood_training/flood_dataset/images/train/` và `images/val/`.
    - Copy file nhãn `.txt` tương ứng vào: `flood_training/flood_dataset/labels/train/` và `labels/val/`.
 
-2. **Chạy huấn luyện với GPU RTX 3060 Ti**:
+2. **Chạy huấn luyện**:
    ```bash
    cd flood_training
    python train.py
@@ -59,6 +60,25 @@ Hệ thống được thiết kế nhận diện 3 đối tượng trọng tâm 
    python export.py
    ```
    Script sẽ tự động tối ưu hóa đồ thị ONNX (`simplify=True`, `opset=16`) và tự động chép file `rt_detr_flood.onnx` sang thư mục `flood_detector_server/`.
+
+---
+
+#### Cách 2: Huấn luyện miễn phí trên Kaggle (GPU T4 x2 / P100 - 16GB VRAM)
+
+Nếu muốn tận dụng tài nguyên đám mây hoặc train batch size lớn hơn (`batch=16`):
+1. **Nén dataset**: Nén thư mục `flood_dataset` thành file `flood_dataset.zip`.
+2. **Tạo Dataset trên Kaggle**:
+   - Truy cập [Kaggle Datasets](https://www.kaggle.com/datasets) -> Chọn **New Dataset** -> Upload file zip lên.
+3. **Tạo Notebook trên Kaggle**:
+   - Nhấn **New Notebook**.
+   - Vào menu bên phải **Notebook Options** -> **Accelerator** -> Chọn **GPU T4 x2** (hoặc **GPU P100**).
+   - Bật **Internet: On**.
+   - Upload file notebook [train_kaggle.ipynb](file:///f:/Nam4/Phát%20triển%20hệ%20thống%20thông%20minh/flood_training/train_kaggle.ipynb) có sẵn trong thư mục `flood_training/` lên Kaggle.
+4. **Chạy huấn luyện**:
+   - Nhấn **Run All**. Notebook sẽ tự động tải Ultralytics, nạp GPU và train 100 epochs.
+5. **Tải file ONNX về máy**:
+   - Sau khi cell cuối cùng chạy xong, ở thanh bên phải phần **Output**, click vào file **`rt_detr_flood.onnx`** và chọn **Download**.
+   - Bỏ file này vào thư mục `flood_detector_server/` trên máy tính là xong!
 
 ---
 
